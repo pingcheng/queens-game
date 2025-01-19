@@ -1,22 +1,17 @@
 import { TileHolder, TileState, TileType } from "@/config/game.config";
 
 export function generateGame(size: number): TileHolder[] {
-  const tiles: TileHolder[] = Array(size * size).fill({
-    type: TileType.Empty,
-    state: TileState.Empty,
-    color: "white",
-  });
+  const tiles: TileHolder[] = Array(size * size)
+    .fill(null)
+    .map(createEmptyTile);
 
   // place queens and group cells
   const queensIndexes = generateRandomNQueens(size);
-  const groups = groupCellsWithQueens(size, queensIndexes, 1);
+  const groups = groupCellsWithQueens(size, queensIndexes, 2);
 
   for (const index of queensIndexes) {
-    tiles[index] = {
-      type: TileType.Queen,
-      state: TileState.Empty,
-      color: "white",
-    };
+    tiles[index].state = TileState.Empty;
+    tiles[index].type = TileType.Queen;
   }
 
   // fill colours
@@ -32,12 +27,21 @@ export function generateGame(size: number): TileHolder[] {
     "magenta",
   ];
   for (const group of groups) {
+    const color = colors.pop();
     group.forEach((index) => {
-      tiles[index].color = colors.pop() || "white";
+      tiles[index].color = color || "white";
     });
   }
 
   return tiles;
+}
+
+function createEmptyTile(): TileHolder {
+  return {
+    type: TileType.Empty,
+    state: TileState.Empty,
+    color: "white",
+  };
 }
 
 // TODO: from chatgpt but did not work
