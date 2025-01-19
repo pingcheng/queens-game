@@ -7,9 +7,10 @@ type TileProps = Readonly<{
   index: number;
   state: TileState;
   onClick: (index: number) => void;
+  color: string;
 }>;
 
-export default function Tile({ index, state, onClick }: TileProps) {
+export default function Tile({ index, state, color, onClick }: TileProps) {
   const marker = useMemo(() => {
     if (state === TileState.CROSS) {
       return "X";
@@ -33,6 +34,7 @@ export default function Tile({ index, state, onClick }: TileProps) {
         height: TILE_SIZE,
         border: "1px solid black",
         cursor: "pointer",
+        backgroundColor: color,
       }}
       onClick={handleClick}
     >

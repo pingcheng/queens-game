@@ -18,6 +18,7 @@ export enum TileState {
 export type TileHolder = {
   type: TileType;
   state: TileState;
+  color: string;
 };
 
 export const NEXT_TILE_STATE: Record<TileState, TileState> = {
