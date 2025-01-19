@@ -19,13 +19,10 @@ export default function GameBoard({ size, onWin }: GameBoardProps) {
   }, [size]);
 
   useEffect(() => {
-    if (!tiles) {
-      return;
-    }
+    if (!tiles) return;
+    if (!onWin) return;
 
-    if (onWin && isWinningGame(tiles)) {
-      onWin();
-    }
+    if (isWinningGame(tiles)) onWin();
   }, [tiles, onWin]);
 
   const renderedTiles = useMemo(() => {
