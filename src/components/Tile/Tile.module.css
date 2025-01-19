@@ -1,0 +1,89 @@
+.tile {
+  border: 1px solid black;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  user-select: none;
+
+  &:hover {
+    background-color: lightgray;
+  }
+
+  img {
+    width: 50%;
+  }
+}
+
+.group-0 {
+  background-color: lightcyan;
+
+  &:hover {
+    background-color: paleturquoise;
+  }
+}
+
+.group-1 {
+  background-color: lightcoral;
+
+  &:hover {
+    background-color: mistyrose;
+  }
+}
+
+.group-2 {
+  background-color: lightgreen;
+
+  &:hover {
+    background-color: palegreen;
+  }
+}
+
+.group-3 {
+  background-color: lightblue;
+
+  &:hover {
+    background-color: powderblue;
+  }
+}
+
+.group-4 {
+  background-color: lightyellow;
+
+  &:hover {
+    background-color: lemonchiffon;
+  }
+}
+
+.group-5 {
+  background-color: plum;
+
+  &:hover {
+    background-color: thistle;
+  }
+}
+
+.group-6 {
+  background-color: moccasin;
+
+  &:hover {
+    background-color: peachpuff;
+  }
+}
+
+.group-7 {
+  background-color: lightpink;
+
+  &:hover {
+    background-color: pink;
+  }
+}
+
+.group-8 {
+  background-color: thistle;
+
+  &:hover {
+    background-color: lavenderblush;
+  }
+}

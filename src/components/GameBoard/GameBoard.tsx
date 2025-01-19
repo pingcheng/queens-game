@@ -44,7 +44,7 @@ export default function GameBoard({ size, onWin }: GameBoardProps) {
           key={index}
           index={index}
           state={tile.state}
-          color={tile.color}
+          color={tile.group}
           onClick={handleTileClick}
         />
       );

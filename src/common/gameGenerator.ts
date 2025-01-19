@@ -15,21 +15,10 @@ export function generateGame(size: number): TileHolder[] {
   }
 
   // fill colours
-  const colors = [
-    "red",
-    "green",
-    "blue",
-    "yellow",
-    "purple",
-    "orange",
-    "pink",
-    "cyan",
-    "magenta",
-  ];
-  for (const group of groups) {
-    const color = colors.pop();
+  for (const i in groups) {
+    const group = groups[i];
     group.forEach((index) => {
-      tiles[index].color = color || "white";
+      tiles[index].group = `group-${i}`;
     });
   }
 
@@ -40,7 +29,7 @@ function createEmptyTile(): TileHolder {
   return {
     type: TileType.Empty,
     state: TileState.Empty,
-    color: "white",
+    group: "white",
   };
 }
 
